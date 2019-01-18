@@ -1,0 +1,7 @@
+com\test\springmvc\MyBeanManager.class
+com\configuration\MyPropertyConfigurer.class
+com\test\springmvc\Shop.class
+com\configuration\ConfigFileLocationService.class
+com\test\springmvc\HibernateTester.class
+com\test\springmvc\JSONController.class
+com\datamanagement\hibernate\dto\EmployeeDTO.class

@@ -1,0 +1,31 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans     
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/mvc 
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd
+        http://www.springframework.org/schema/context 
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+
+	<context:component-scan base-package="com.*" />
+	<bean class="com.test.springmvc.MyBeanManager" />
+	<mvc:annotation-driven />
+
+	<bean id="propertyConfigurer"
+		class="com.configuration.MyPropertyConfigurer"
+		depends-on="ConfigLocator">
+		<property name="location">
+			<value>file:#{ConfigLocator.configPath}</value>
+		</property>
+	</bean>
+
+	<!-- <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"> 
+		<property name="location" value="classpath:configuration.properties" /> </bean> -->
+
+	<bean id="ConfigLocator"
+		class="com.configuration.ConfigFileLocationService"></bean>
+</beans>

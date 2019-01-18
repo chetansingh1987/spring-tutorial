@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+
+
+<!-- create table employee_table_db(id_db integer primary key , name_db varchar(50) 
+	, age_db integer , salary_db integer , address_db varchar(100) ) -->
+<hibernate-mapping
+	package="com.datamanagement.hibernate.dto">
+	<class name="EmployeeDTO" table="employee_table_db"
+		dynamic-insert="true" dynamic-update="true">
+
+		<composite-id>
+			<key-property column="id_db" name="id" type="integer" />
+		</composite-id>
+
+		<property column="name_db" lazy="false" name="name"
+			type="string" not-null="true" />
+		<property column="age_db" lazy="false" name="age" type="int"
+			not-null="true" />
+		<property column="salary_db" lazy="false" name="salary"
+			type="int" not-null="true" />
+		<property column="address_db" lazy="false" name="address"
+			type="string" not-null="true" />
+
+
+	</class>
+</hibernate-mapping>
+ 
